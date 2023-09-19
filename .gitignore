@@ -74,3 +74,4 @@ crashlytics-build.properties
 
 Assets/StreamingAssets/*
 Assets/SamplesResources/*
+Packages/com.ptc.vuforia.engine-10.17.4.tgz
