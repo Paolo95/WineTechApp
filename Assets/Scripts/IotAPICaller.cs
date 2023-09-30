@@ -88,10 +88,10 @@ public class IotAPICaller: MonoBehaviour
         IotAPICaller tempFogliaLoader = JsonConvert.DeserializeObject<IotAPICaller>(responseString);
         
         txtTempFoglia.text = (tempFogliaLoader.data[0][11].ToString().Substring(0, 5) + " °C");
-        txtUmidFoglia.text = (tempFogliaLoader.data[0][10].ToString().Substring(0, 5) + " %");
+        txtUmidFoglia.text = (tempFogliaLoader.data[0][10].ToString().Substring(0, 3) + " %");
         txtTemp.text = (tempFogliaLoader.data[0][2].ToString().Substring(0, 5) + " °C");
         txtUmid.text = (tempFogliaLoader.data[0][3].ToString().Substring(0, 5) + " %");
-        txtPioggia.text = (tempFogliaLoader.data[0][4].ToString().Substring(0, 5) + "  mm");
+        txtPioggia.text = (tempFogliaLoader.data[0][4].ToString().Substring(0, 3) + "  mm");
         
         DateTime dataUltimoAgg = DateTime.ParseExact(tempFogliaLoader.data[0][1].ToString().Substring(0, 10), "yyyy-MM-dd" , CultureInfo.InvariantCulture);
         DateTime oraUltimoAgg = DateTime.ParseExact(tempFogliaLoader.data[0][1].ToString().Substring(11, 5), "HH:mm", CultureInfo.InvariantCulture);

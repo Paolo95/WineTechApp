@@ -41,13 +41,13 @@ public class BtnOsservaController : MonoBehaviour
                     txtSottotitoloVino.text = data.document.Titolo2;
                     txtCantina.text = data.document.Titolo1;
                     txtLuogoProduzione.text = data.document.LuogoProd;
-                    txtDescrizione.text = data.document.Descrizione;
+                    txtDescrizione.text = data.document.Descrizione["2019"];
                 }
                 else
                 {
                     txtTitoloVino.text = "Errore nel server!";
                 }
-            });
+            }, "tit1_tit2_luogo_descr");
         }
     }
 

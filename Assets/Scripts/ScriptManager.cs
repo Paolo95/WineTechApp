@@ -36,14 +36,12 @@ public class ScriptManager : MonoBehaviour
         {
             if (data != null)
             {
-                // Iterate through the string array
-                for (int i = 0; i < data.document.ScriptSommelier.Count; i++)
+                Dictionary<string, string> scriptSommelierSelected = data.document.ScriptSommelier[Scene2Setter.GetSelectedOption()];
+                
+                foreach (var kvp in scriptSommelierSelected)
                 {
-                    // Check if the entry is not empty
-                    if (!string.IsNullOrEmpty(data.document.ScriptSommelier[i]))
-                    {
-                        scriptDict[i] = data.document.ScriptSommelier[i]; // Add the entry to the dictionary
-                    }
+                    scriptDict[int.Parse(kvp.Key)] = kvp.Value; // Add the entry to the dictionary
+                    
                 }
                 
             }
@@ -53,7 +51,7 @@ public class ScriptManager : MonoBehaviour
             }
 
             
-        });
+        }, "script");
         
         foreach (KeyValuePair<int, string> scriptScorePair in scriptDict)
         {

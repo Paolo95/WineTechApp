@@ -103,7 +103,7 @@ public class OpenWeatherAPICaller : MonoBehaviour
                     latitude = data.document.Latitudine;
                     longitude = data.document.Longitudine;
                 }
-            });
+            }, "lat_long");
         }
         
         await GetWeaherData();
@@ -111,7 +111,7 @@ public class OpenWeatherAPICaller : MonoBehaviour
     
     private async Task GetWeaherData()
     {
-        string url = $"https://api.openweathermap.org/data/2.5/weather?lat={latitude}&lon={longitude}&appid={openWeatherApiKey}";
+        string url = $"https://api.openweathermap.org/data/2.5/weather?lat={latitude}&lon={longitude}&appid={openWeatherApiKey}&units=metric";
 
         using (UnityWebRequest webRequest = UnityWebRequest.Get(url))
         {
@@ -130,7 +130,7 @@ public class OpenWeatherAPICaller : MonoBehaviour
             else
             {
                 string json = webRequest.downloadHandler.text;
-                
+               
                 WeatherData openWeatherData = JsonUtility.FromJson<WeatherData>(json);
 
                 DateTime dateTime = UnixTimeStampToDateTime(openWeatherData.dt);

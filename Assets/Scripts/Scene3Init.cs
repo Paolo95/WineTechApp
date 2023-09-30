@@ -71,13 +71,13 @@ public class Scene3Init : MonoBehaviour
                     txtSottotitoloVino.text = data.document.Titolo2;
                     txtCantina.text = data.document.Titolo1;
                     txtLuogoProduzione.text = data.document.LuogoProd;
-                    txtDescrizione.text = data.document.Descrizione;
+                    txtDescrizione.text = data.document.Descrizione[Scene2Setter.GetSelectedOption()];
                 }
                 else
                 {
                     txtTitoloVino.text = "Errore nel server!";
                 }
-            });
+            }, "tit1_tit2_luogo_descr");
         }
         
     }
